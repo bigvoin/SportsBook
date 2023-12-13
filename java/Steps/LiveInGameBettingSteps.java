@@ -1,42 +1,21 @@
 package Steps;
 
-import static com.codeborne.selenide.Condition.and;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.title;
-import static com.codeborne.selenide.WebDriverRunner.currentFrameUrl;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebElementCondition;
-import com.codeborne.selenide.WebElementsCondition;
 import io.qameta.allure.Step;
-import java.util.ArrayList;
-import java.util.Objects;
 import pages.BasePage;
 import pages.LiveInGamePage;
 
-public class LiveInGameBettingSteps {
+public class LiveInGameBettingSteps extends BasePage{
 
-  private static final String BASE_URL = "https://sportsbook.draftkings.com";
 
   private static final BasePage BASE_PAGE = new BasePage();
 
   private static final LiveInGamePage LIVE_IN_GAME_PAGE = new LiveInGamePage();
-
-  @Step("Open Sportsbook Website")
-  public LiveInGameBettingSteps openSportsBookWebsite() {
-    open(BASE_URL);
-    String expectedTitle = "Sports Betting | Bet Online Legally with DraftKings Sportsbook";
-    String actualTittle = title();
-    assert Objects.equals(actualTittle, expectedTitle);
-
-    return this;
-  }
 
   @Step("Navigate to Live-In Game tab")
   public LiveInGameBettingSteps navigateToLiveInGameTab() {

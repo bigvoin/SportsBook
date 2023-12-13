@@ -1,21 +1,25 @@
 package automationTests;
 
+import Steps.BasePageSteps;
 import Steps.LiveInGameBettingSteps;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class LiveInGameBettingTests {
+public class LiveInGameBettingTests{
 
   private static final LiveInGameBettingSteps LIVE_IN_GAME_BETTING_STEPS = new LiveInGameBettingSteps();
+
+  private static final BasePageSteps BASE_PAGE_STEPS = new BasePageSteps();
 
   @BeforeEach
   public void beforeEachTest() {
     Configuration.browser = "chrome";
 
+    BASE_PAGE_STEPS.openSportsBookWebsite();
+
     LIVE_IN_GAME_BETTING_STEPS
-        .openSportsBookWebsite()
         .navigateToLiveInGameTab()
         .verifyAtLeastOneVisibleSportsTab();
   }

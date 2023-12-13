@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selenide.$$;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
-public class LiveInGamePage {
+public class LiveInGamePage{
 
   public ElementsCollection getAllAvailableSportsTabs() {
     return $$(".sportsbook-tabbed-subheader__tab-link");
